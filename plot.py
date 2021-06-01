@@ -23,15 +23,19 @@ ziped = zip(my_files, colors)
 
 
 for root, dirs, files in os.walk('build'):
-    for file in files:
-        for my_file, color in ziped:
+    for my_file, color in ziped:
+        for file in files:
+            print(my_file, file)
             if file == my_file:
                 y = []
                 inner_list = []
                 with open(os.path.join(root, file), "r") as auto:
                     for line in auto:
                         inner_list.append(line.split('\n')[0])
+                
                 y.append(inner_list)
+                print(x)
+                print(y[0])
                 plt.plot(x, y[0], color, linewidth=1)
 
 
